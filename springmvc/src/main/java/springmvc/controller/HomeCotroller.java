@@ -2,16 +2,19 @@ package springmvc.controller;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+@RequestMapping("/first")
 public class HomeCotroller {
 
-	@RequestMapping("/home")
+	@RequestMapping(path="/home",method = RequestMethod.GET)
 	public String home(Model model) {
 		System.out.println("We are in home controller function");
 		model.addAttribute("name","Kuldeep Patidar");
@@ -45,6 +48,15 @@ public class HomeCotroller {
 		model.addObject("isHungry",false);
 		LocalDateTime now = LocalDateTime.now();
 		model.addObject("time",now);
+
+		List<Integer> marks = new ArrayList<>();
+		marks.add(121);
+		marks.add(233);
+		marks.add(33);
+
+		model.addObject("marks",marks);
+
+		// setting view name
 		model.setViewName("help");
 		return model;
 	}
