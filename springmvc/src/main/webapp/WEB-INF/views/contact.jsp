@@ -14,26 +14,26 @@
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
 
-<title>Hello, world!</title>
+<title>Contact</title>
 </head>
 <body>
 
 	<div class = "container mt-5">
 		<h3 class="text-center">Registration form</h3>
-		<form>
+		<form action="processform" method="post">
 			<div class="form-group">
 				<label for="userEmail">Email address</label> 
-				<input type="email" class="form-control" id="userEmail" aria-describedby="emailHelp" placeholder="Enter email"> 
+				<input name = "email" type="email" class="form-control" id="userEmail" aria-describedby="emailHelp" placeholder="Enter email"> 
 			</div>
 			
 			<div class="form-group">
 				<label for="userName">Name</label> 
-				<input type="text" class="form-control" id="userName" aria-describedby="nameHelp" placeholder="Enter name"> 
+				<input name="name" type="text" class="form-control" id="userName" aria-describedby="nameHelp" placeholder="Enter name"> 
 			</div>
 			
 			<div class="form-group">
 				<label for="userPassword">Password</label> 
-				<input type="password" class="form-control" id="userPassword" aria-describedby="passwordHelp" placeholder="Enter password"> 
+				<input name="password" type="password" class="form-control" id="userPassword" aria-describedby="passwordHelp" placeholder="Enter password"> 
 			</div>
 			
 			<div class="container text-center">
