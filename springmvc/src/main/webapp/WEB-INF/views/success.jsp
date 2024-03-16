@@ -9,7 +9,7 @@
 <body>
 <h3 class="text-center">${Header }</h3>
 		<p class="text-center">${Desc }</p>
-		
+		<h6 style="color:green">${msg }</h6>
 		<hr>
 	<h1>Welcome , ${user.name }</h1>
 	<h1>Your email is ${user.email }</h1>
