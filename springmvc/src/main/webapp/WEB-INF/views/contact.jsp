@@ -18,25 +18,35 @@
 </head>
 <body>
 
-	<div class = "container mt-5">
+	<div class="container mt-5">
 		<h3 class="text-center">${Header }</h3>
 		<p class="text-center">${Desc }</p>
 		<form action="processform" method="post">
+
 			<div class="form-group">
-				<label for="userEmail">Email address</label> 
-				<input name = "email" type="email" class="form-control" id="userEmail" aria-describedby="emailHelp" placeholder="Enter email"> 
+				<label for="userEmail">Id</label> <input name="id"
+					type="id" class="form-control" id="userId"
+					aria-describedby="id" placeholder="Enter Id">
 			</div>
 			
 			<div class="form-group">
-				<label for="userName">Name</label> 
-				<input name="name" type="text" class="form-control" id="userName" aria-describedby="nameHelp" placeholder="Enter name"> 
+				<label for="userEmail">Email address</label> <input name="email"
+					type="email" class="form-control" id="userEmail"
+					aria-describedby="emailHelp" placeholder="Enter email">
 			</div>
-			
+
 			<div class="form-group">
-				<label for="userPassword">Password</label> 
-				<input name="password" type="password" class="form-control" id="userPassword" aria-describedby="passwordHelp" placeholder="Enter password"> 
+				<label for="userName">Name</label> <input name="name" type="text"
+					class="form-control" id="userName" aria-describedby="nameHelp"
+					placeholder="Enter name">
 			</div>
-			
+
+			<div class="form-group">
+				<label for="userPassword">Password</label> <input name="password"
+					type="password" class="form-control" id="userPassword"
+					aria-describedby="passwordHelp" placeholder="Enter password">
+			</div>
+
 			<div class="container text-center">
 				<button type="submit" class="btn btn-success">Sign up</button>
 			</div>
