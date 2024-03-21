@@ -1,5 +1,7 @@
 package springmvc.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,24 +21,66 @@ public class ContactController {
 	@ModelAttribute
 	public void commonData(Model model) {
 		System.out.println("Inside common function");
-		model.addAttribute("Header","Registration form");
+		model.addAttribute("Header","User Registration form");
 		model.addAttribute("Desc","Please fill in the below details");
 	}
+
 	@RequestMapping("/contact")
 	public String contact() {
 		System.out.println("Inside contact form");
+		//		this.service.getUsers();
 		return "contact";
 	}
+
+	@RequestMapping("/viewUsers")
+	public String view(Model model) {
+		List<User> li = this.service.getUsers();
+		model.addAttribute("users",li);
+		return "viewUsers";
+	}
+
 
 	@RequestMapping(path = "/processform",method = RequestMethod.POST)
 	public String handleForm(@ModelAttribute User user , Model model) {
 		System.out.println("Inside handleForm");
 		// saving the user in db.
-		int id  = this.service.createUser(user);
+		List<User> li = this.service.getUsers();
+		for(User u : li) {
+			if(user.getId()==u.getId()) {
+				model.addAttribute("DupUser","User already exists...");
+				return "contact";
+			}
+		}
+
+
+		/// duplicate id not found , create user
+
+		this.service.createUser(user);
 		model.addAttribute("msg","User created");
 		return "success";
 	}
+
+	@RequestMapping("/userLogin")
+	public String userLogin() {
+		return "userLogin";
+	}
+
+	@RequestMapping(path = "/userLoginForm",method = RequestMethod.POST)
+	public String userLoginForm(@ModelAttribute User user , Model model) {
+		List<User> li = this.service.getUsers();
+		for(User u : li) {
+			if(u.getEmail()==user.getEmail() && u.getPassword()==user.getPassword()) {		// user matched
+				model.addAttribute("userName",user.getName());
+				return "userView";
+			}
+		}
+		model.addAttribute("invalid-cred","Invalid User credentials");
+		return "userLogin";
+	}
 }
+
+
+
 
 
 /*
