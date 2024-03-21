@@ -14,9 +14,31 @@
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
 
-<title>Contact</title>
+<title>Sign Up</title>
 </head>
 <body>
+	<div class="container-fluid ">
+
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+			<a class="navbar-brand" href="/springmvc/home">Main</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarNav" aria-controls="navbarNav"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item active"><a class="nav-link" href="#">Home
+							<span class="sr-only">(current)</span>
+					</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">Features</a>
+					</li>
+
+				</ul>
+			</div>
+
+		</nav>
+	</div>
 
 	<div class="container mt-5">
 		<h3 class="text-center">${Header }</h3>
@@ -24,33 +46,52 @@
 		<form action="processform" method="post">
 
 			<div class="form-group">
-				<label for="userEmail">Id</label> <input name="id"
-					type="id" class="form-control" id="userId"
-					aria-describedby="id" placeholder="Enter Id">
+				<label for="userEmail">Id</label> <input name="id" type="id"
+					class="form-control" id="userId" aria-describedby="id"
+					placeholder="Enter Id">
 			</div>
-			
+
 			<div class="form-group">
 				<label for="userEmail">Email address</label> <input name="email"
 					type="email" class="form-control" id="userEmail"
-					aria-describedby="emailHelp" placeholder="Enter email">
+					aria-describedby="emailHelp" placeholder="Enter email" required>
 			</div>
 
 			<div class="form-group">
 				<label for="userName">Name</label> <input name="name" type="text"
 					class="form-control" id="userName" aria-describedby="nameHelp"
-					placeholder="Enter name">
+					placeholder="Enter name" required>
 			</div>
 
 			<div class="form-group">
 				<label for="userPassword">Password</label> <input name="password"
 					type="password" class="form-control" id="userPassword"
-					aria-describedby="passwordHelp" placeholder="Enter password">
+					aria-describedby="passwordHelp" placeholder="Enter password"
+					required>
 			</div>
 
 			<div class="container text-center">
 				<button type="submit" class="btn btn-success">Sign up</button>
 			</div>
 		</form>
+
+		<%
+		if ("POST".equals(request.getMethod()) && request.getParameter("email") != null && request.getParameter("name") != null
+				&& request.getAttribute("DupUser") != null) {
+		%>
+		<div class="alert alert-danger mt-3" role="alert">User already
+			exists</div>
+
+		<div class="container text-center">
+			<a href="contact">Back</a>
+		</div>
+		<%
+		}
+		%>
+
+
+
+		<a href="viewUsers">Get All Users</a>
 	</div>
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
