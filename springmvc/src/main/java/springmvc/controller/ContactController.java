@@ -69,8 +69,8 @@ public class ContactController {
 	public String userLoginForm(@ModelAttribute User user , Model model) {
 		List<User> li = this.service.getUsers();
 		for(User u : li) {
-			if(u.getEmail()==user.getEmail() && u.getPassword()==user.getPassword()) {		// user matched
-				model.addAttribute("userName",user.getName());
+			if(u.getId()==user.getId() && u.getPassword().equals(user.getPassword())) {		// user matched
+				model.addAttribute("userName",u.getName());
 				return "userView";
 			}
 		}
