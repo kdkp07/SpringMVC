@@ -89,9 +89,12 @@
 		}
 		%>
 
-
+		
 
 		<a href="viewUsers">Get All Users</a>
+		<div class="container text-center">
+			<a href="userLogin">Back</a>
+		</div>
 	</div>
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
