@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import springmvc.model.User;
 
@@ -29,7 +28,7 @@ public class userDao {
 	}
 
 
-	@Transactional
+
 	public int saveUser(User user) {
 		String q = "insert into User (id,email,name,password) values(?,?,?,?)";
 		int id = this.jdbcTemplate.update(q,user.getId(),user.getEmail(),user.getName(),user.getPassword());
@@ -37,7 +36,7 @@ public class userDao {
 	}
 
 	public List<User> getUsers(){    
-		return jdbcTemplate.query("select * from springjdbc",new RowMapper<User>(){    
+		return jdbcTemplate.query("select * from User",new RowMapper<User>(){    
 			@Override
 			public User mapRow(ResultSet rs, int row) throws SQLException {    
 				User e =new User();
