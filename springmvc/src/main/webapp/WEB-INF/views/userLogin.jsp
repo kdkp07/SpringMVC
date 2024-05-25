@@ -14,7 +14,7 @@
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
 
-<title>User Login</title>
+<title>Library</title>
 </head>
 <body>
 <div class="container-fluid ">
@@ -67,21 +67,21 @@
 											into your account</h5>
 
 										<div class="form-outline mb-4">
-											<input type="email" id="email"
-												class="form-control form-control-lg" /> <label
-												class="form-label" for="email">Email
-												address</label>
+											<input type="text" id="id"
+												class="form-control form-control-lg" name="id" /> <label
+												class="form-label" for="id">Id
+												</label>
 										</div>
 
 										<div class="form-outline mb-4">
-											<input type="password" id=password
-												class="form-control form-control-lg" /> <label
+											<input type="password" id="password"
+												class="form-control form-control-lg" name= "password"/> <label
 												class="form-label" for="password">Password</label>
 										</div>
 
 										<div class="pt-1 mb-4">
 				
-											<button class="btn btn-dark btn-lg btn-block" type="button">Login</button>
+											<button class="btn btn-dark btn-lg btn-block" type="submit">Login</button>
 										</div>
 
 										<a class="small text-muted" href="#!">Forgot password?</a>
@@ -101,14 +101,14 @@
 			</div>
 		</div>
 	</section>
-		<%
+		<%-- <%
 		if ("POST".equals(request.getMethod()) && request.getParameter("email") != null && request.getParameter("password") != null
 				&& request.getAttribute("invalid-user") != null) {
 		%>
 		<div class="alert alert-danger mt-3" role="alert"> ${invalid-cred }</div>
 		<%
-		}
-		%>
+		} --%>
+<!-- 		%> -->
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
